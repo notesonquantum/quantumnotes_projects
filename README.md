@@ -6,7 +6,7 @@ Each folder corresponds to a specific topic from the channel and includes clean,
 ---
 
 ## 📺 My YouTube Channel  
-👉 [Watch here]((https://www.youtube.com/channel/UC7J_9DXi-EMgHscVIadn24Q))  
+👉 https://www.youtube.com/channel/UC7J_9DXi-EMgHscVIadn24Q
 
 ---
 
