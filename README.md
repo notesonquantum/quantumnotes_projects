@@ -14,6 +14,7 @@ Each folder corresponds to a specific topic from the channel and includes clean,
 
 | Folder | Description |
 |--------|-------------|
+| `Simulating-Nature` | Motivating why we need Quantum Computers for Simulating Nature and how a Variational Quantum Eigensolvers works |
 | `Quantum-Machine-Learning` | Variational quantum classifier for the XOR problem using Qiskit |
 | `Deutsch-Jozsa` | Implementation of the Deutsch-Jozsa algorithm |
 
