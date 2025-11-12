@@ -11,15 +11,6 @@ The **actual Python implementation** of the algorithm can be found here:
 
 ---
 
-<p align="center">
-  <a href="https://www.youtube.com/@notesonquantum">
-    <img alt="YouTube – Quantum Notes" src="https://img.shields.io/badge/YouTube-Quantum%20Notes-red?logo=youtube"/>
-  </a>
-  <a href="https://qiskit.org/">
-    <img alt="Qiskit" src="https://img.shields.io/badge/Qiskit-2.1.1-6929C4?logo=qiskit"/>
-  </a>
-</p>
-
 ## 🧠 Idea
 
 We are given an **oracle** — a black-box function:
