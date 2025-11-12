@@ -94,21 +94,3 @@ Finally, we **scale up** the quantum classifier:
 👉 [`instance.txt`](./instance.txt)
 
 ---
-
-## ⚙️ Code Overview
-
-| Part | File | Description |
-|------|------|--------------|
-| 1️⃣ Classical XOR | `classical_xor.py` | Classical neural network learning XOR (Python simulation) |
-| 2️⃣ QML Theory | `vqc_theory.py` | Illustrates the structure of the Variational Quantum Classifier (no code execution) |
-| 3️⃣ QML Implementation | `vqc_implementation.py` | Qiskit implementation of the VQC learning XOR |
-| 4️⃣ QML Scaled | `vqc_scaled.py` | Scaled-up VQC (3–9 input bits, optional IBM backend) |
-| 🔐 IBM Quantum Instance | `instance.txt` | Contains your personal IBM Quantum credentials (not uploaded publicly) |
-
----
-
-Next, we can go through each of the four code files one by one  
-and add dedicated subsections just like we did with the **Deutsch–Jozsa Algorithm** —  
-each with *Idea → Implementation → Code Flow → Video Link*.
-
-Should I start with **Part 1 – Classical XOR (classical_xor.py)** next?
