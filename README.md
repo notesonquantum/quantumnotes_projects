@@ -14,9 +14,9 @@ Each folder corresponds to a specific topic from the channel and includes clean,
 
 | Folder | Description |
 |--------|-------------|
-| `Simulating-Nature` | Motivating why we need Quantum Computers for Simulating Nature and how a Variational Quantum Eigensolvers works |
-| `Quantum-Machine-Learning` | Variational quantum classifier for the XOR problem using Qiskit |
-| `Deutsch-Jozsa` | Implementation of the Deutsch-Jozsa algorithm |
+| `Simulating-Nature` | Demonstrates how quantum computers can simulate molecular systems, using the **Variational Quantum Eigensolver (VQE)** to compute the ground-state energy of H₂ |
+| `Quantum-Machine-Learning` | Shows how to build and train a **Variational Quantum Classifier (VQC)** for the XOR problem, from classical to quantum implementation |
+| `Deutsch-Jozsa` | Explains and implements the **Deutsch–Jozsa algorithm**, illustrating the efficiency advantage of quantum computation |
 
 More projects will be added over time.
 
