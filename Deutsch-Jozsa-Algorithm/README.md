@@ -7,7 +7,7 @@ This README provides a **short overview** of:
 3. The **overall structure** and **execution flow** of the Qiskit code implementation.
 
 The **actual Python implementation** of the algorithm can be found here:  
-👉 [**deutsch_jozsa_algorithm_code.py**](Deutsch-Jozsa-Algorithm)
+👉 [**deutsch_jozsa_algorithm_code.py**](deutsch_jozsa_algorith_code.py)
 
 ---
 
