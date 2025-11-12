@@ -1,4 +1,4 @@
-# ⚛️ Simulating Nature – Variational Quantum Eigensolver (Qiskit 2.1.1)
+# ⚛️ Simulating Nature – Variational Quantum Eigensolver (Qiskit 1.4.4)
 
 This README provides a **short overview** of:
 
@@ -22,6 +22,8 @@ The main idea is to **simulate nature itself**, since quantum systems can natura
 The algorithm finds the minimal energy configuration — the **ground state** — by variationally  
 adjusting a parameterized quantum circuit until it best represents the molecule’s lowest-energy wavefunction.
 
+🎬 [**Simulating Nature with Quantum Computers Part 1 - The Big Picture**](https://youtu.be/Aoi6DwUw9zQ)  
+
 ---
 
 ### ⚙️ Classical approach
@@ -30,6 +32,8 @@ Classically, finding molecular ground-state energies requires solving the **Schr
 for interacting electrons — a task that scales **exponentially** with the system size.  
 Methods such as **Full Configuration Interaction (FCI)** are exact but computationally intractable  
 for all but the smallest molecules.
+
+🎬 [**Simulating Nature with Quantum Computers Part 2 - The Technical Workflow**](https://youtu.be/YAdT5Z4Tmsw)  
 
 ---
 
@@ -41,13 +45,7 @@ it uses a **parameterized quantum circuit (ansatz)** to approximate the ground s
 A **quantum backend** evaluates the energy expectation value ⟨ψ(θ)|H|ψ(θ)⟩,  
 and a **classical optimizer** updates the parameters θ to minimize it.
 
-Key ideas:
-- Use a **hybrid loop** between quantum and classical computation.  
-- Exploit **superposition and entanglement** to efficiently explore the Hilbert space.  
-- Find the **ground-state energy** as the global minimum of the variational cost function.
-
-🎬 [**Simulating Nature – The Variational Quantum Eigensolver (VQE)**](https://www.youtube.com/@notesonquantum)  
-*Explains how the VQE algorithm approximates molecular ground-state energies using Qiskit Nature.*
+🎬 [**Simulating Nature with Quantum Computers Part 3 - The Variational Quantum Eigensolver**](https://youtu.be/dejBlXnZNHM)  
 
 ---
 
@@ -61,53 +59,51 @@ Key ideas:
 - **Optimizer:** SPSA (Simultaneous Perturbation Stochastic Approximation)  
 - **Primitive:** `BackendEstimatorV2`  
 - **Backend:** `AerSimulator` (shot-based simulation, 8192 shots)  
-- **Framework:** Qiskit 2.1.1 + Qiskit Nature  
+- **Framework:** Qiskit 1.4.4 + Qiskit Nature  
 
 ---
 
 ## ⚙️ Execution Flow
 
+🎬 [**Simulating Nature with Quantum Computers Part 4 — How to actually simulate it**](https://youtu.be/kwFZLDZKYSw)  
+
 1. **Problem setup**  
-   Define the H₂ molecule using `PySCFDriver` and reduce it to an active space (2e⁻, 2 orbitals).
+   Define the H₂ molecule (bond length 0.74 Å) using `PySCFDriver`,  
+   reduce it to 2 electrons in 2 orbitals with `ActiveSpaceTransformer`,  
+   and map it to qubits using the `ParityMapper`.
 
-2. **Mapping to qubits**  
-   Use the `ParityMapper` to transform the fermionic Hamiltonian into a qubit Hamiltonian.
+2. **Ansatz preparation**  
+   Build the **Hartree–Fock** reference state and define the **UCCSD ansatz**  
+   (Unitary Coupled Cluster Singles and Doubles) as the parameterized circuit.
 
-3. **Ansatz preparation**  
-   Build the initial **Hartree–Fock state** and the **UCCSD ansatz** to parameterize the wavefunction.
+3. **Circuit optimization**  
+   Use the `AerSimulator` as backend and transpile the ansatz with  
+   `generate_preset_pass_manager(optimization_level=3)` for gate optimization.
 
-4. **Circuit optimization**  
-   Transpile and optimize the ansatz circuit with  
-   `generate_preset_pass_manager(optimization_level=3)` for the `AerSimulator`.
+4. **VQE setup and execution**  
+   Combine the ansatz, `BackendEstimatorV2`, and the **SPSA optimizer**  
+   within the **VQE algorithm**, and solve the ground-state energy with  
+   `GroundStateEigensolver(mapper, vqe)`.
 
-5. **VQE setup**  
-   Combine the ansatz, `BackendEstimatorV2`, and the `SPSA` optimizer to construct the hybrid VQE algorithm.
+5. **Energy results**  
+   Print the total, nuclear, and electronic energies and compare them  
+   to reference FCI values for verification.
 
-6. **Solve the ground-state problem**  
-   Use `GroundStateEigensolver` to minimize the expectation value and estimate the molecule’s energy.
+6. **Wavefunction reconstruction**  
+   Retrieve the optimized parameters, reconstruct the statevector,  
+   and display amplitudes and probabilities for each basis state.
 
-7. **Energy analysis**  
-   Print the electronic, nuclear, and total energies and compare them with the exact FCI reference.
-
-8. **Wavefunction reconstruction**  
-   Retrieve the optimized parameters and reconstruct the final statevector to analyze  
-   amplitudes, probabilities, and the superposition structure of the ground state.
-
-9. **Visualization**  
-   Plot the optimized ansatz circuit with Matplotlib (`fold=-1` for full horizontal view).
+7. **Visualization**  
+   Draw the optimized ansatz circuit using Matplotlib (`fold=-1`).
 
 ---
 
 ## ⚙️ Output Summary
 
-- Prints **VQE energy results** and **FCI reference values**  
-- Displays the **optimized statevector** and **probability distribution** over all basis states  
-- Confirms the **sum of probabilities = 100%**  
-- Visualizes the **quantum circuit** representing the final ansatz
-
----
-
-📘 *This simulation shows how quantum algorithms can reproduce physical reality at the molecular level —  
-demonstrating the power of Qiskit Nature to simulate nature itself.*
+- Prints the **total energy** (including nuclear repulsion), the **nuclear repulsion energy**, and the **electronic energy** obtained from the VQE simulation  
+- Displays the **reference FCI values** for direct comparison with the simulated results  
+- Lists the **amplitudes and probabilities** of all computational basis states in the optimized ground state  
+- Confirms that the **sum of probabilities equals 100 %**  
+- Visualizes the **optimized ansatz circuit** representing the final ground-state wavefunction
 
 ---
