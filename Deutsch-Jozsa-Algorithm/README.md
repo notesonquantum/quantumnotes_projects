@@ -1,5 +1,16 @@
 # Deutsch–Jozsa Algorithm (Qiskit 2.1.1)
 
+This README provides a **short overview** of:
+
+1. What the **Deutsch–Jozsa problem** is,  
+2. What is explained in each of the **three accompanying videos**, and  
+3. The **overall structure** and **execution flow** of the Qiskit code implementation.
+
+The **actual Python implementation** of the algorithm can be found here:  
+👉 [**deutsch_jozsa.py**](Deutsch-Jozsa-Algorithm)
+
+---
+
 <p align="center">
   <a href="https://www.youtube.com/@notesonquantum">
     <img alt="YouTube – Quantum Notes" src="https://img.shields.io/badge/YouTube-Quantum%20Notes-red?logo=youtube"/>
